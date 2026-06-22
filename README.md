@@ -48,7 +48,10 @@ Primary reasoning model used: temporal precedence (command must appear before st
 
 ### Additional architecture signals
 - `0x428`: watchdog/counter-like repeating pattern (16-step cycle behavior)
-- `0x353`: binary mode/SOC-related behavior in captured operating context
+- `0x583`: cell and temperature probe counts (`96` cells / `24` temp probes)
+- `0x334`: multiplexed cell voltages
+- `0x3F4`: multiplexed temperature probe values
+- `0x353`: state of charge (SoC)
 - Supporting correlated IDs observed around transitions: `0x026`, `0x046`, `0x186`, `0x342`
 
 ### Platform comparison
@@ -101,6 +104,7 @@ Recommended implementation sequence:
 ### Core technical evidence
 - [COMPREHENSIVE_FINDINGS.md](COMPREHENSIVE_FINDINGS.md) - main evidence and decoded frame set
 - [0x281_COMMAND_FRAME_DECODED.md](0x281_COMMAND_FRAME_DECODED.md) - deep decode for `0x281`
+- [CELL_TEMP_STORAGE_MANUAL.md](CELL_TEMP_STORAGE_MANUAL.md) - deep decode for `0x583`/`0x334`/`0x3F4` telemetry storage
 - [CONTACTOR_CONTROL_ANALYSIS.md](CONTACTOR_CONTROL_ANALYSIS.md) - evidence path for command discovery
 - [EXTENDED_ARCHITECTURE_ANALYSIS.md](EXTENDED_ARCHITECTURE_ANALYSIS.md) - multi-frame architecture extensions
 
@@ -131,9 +135,10 @@ Recommended implementation sequence:
 
 ### Firmware implementation focus
 1. [0x281_COMMAND_FRAME_DECODED.md](0x281_COMMAND_FRAME_DECODED.md)
-2. [COMPREHENSIVE_FINDINGS.md](COMPREHENSIVE_FINDINGS.md)
-3. [main.cpp](main.cpp)
-4. [platformio.ini](platformio.ini)
+2. [CELL_TEMP_STORAGE_MANUAL.md](CELL_TEMP_STORAGE_MANUAL.md)
+3. [COMPREHENSIVE_FINDINGS.md](COMPREHENSIVE_FINDINGS.md)
+4. [main.cpp](main.cpp)
+5. [platformio.ini](platformio.ini)
 
 ---
 

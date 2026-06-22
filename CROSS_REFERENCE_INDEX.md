@@ -41,10 +41,10 @@
 ### Battery Telemetry Frames
 | Discovery | Primary Document | Formula |
 |-----------|------------------|---------|
-| 0x334 cell voltages | `COMPREHENSIVE_FINDINGS.md` | `(byte * 7 + 2500) mV` (empirical) |
-| 0x3F4 temperatures | `COMPREHENSIVE_FINDINGS.md` | Extracted from 7 temperature values |
-| 0x583 cell/temp counts | `COMPREHENSIVE_FINDINGS.md` | Valid flag + counts |
-| 0x353 SOC percentage | `COMPREHENSIVE_FINDINGS.md` | Decoded as percentage |
+| 0x334 cell voltages | `CELL_TEMP_STORAGE_MANUAL.md` | `mux=byte0>>3`, packed words -> `>>2/>>4/>>4` |
+| 0x3F4 temperatures | `CELL_TEMP_STORAGE_MANUAL.md` | `slot=byte0>>6`, 7 channels, `tempC=raw-40` |
+| 0x583 cell/temp counts | `CELL_TEMP_STORAGE_MANUAL.md` | readiness states + bytes5/6 = `24/96` |
+| 0x353 SOC percentage | `CELL_TEMP_STORAGE_MANUAL.md` | byte3 (`0x83` = 83% in these captures) |
 
 ### CMP-SMART Comparison
 | Topic | Document | Content |
@@ -84,10 +84,10 @@
 - **Status:** FULLY DECODED
 
 ### 0x334
-- **Source:** `COMPREHENSIVE_FINDINGS.md`
+- **Source:** `CELL_TEMP_STORAGE_MANUAL.md`
 - **Type:** Cell voltages telemetry
-- **Formula:** `(byte * 7 + 2500) mV`
-- **Status:** EMPIRICALLY VALIDATED
+- **Formula:** `mux=byte0>>3`, packed extraction (`>>2/>>4/>>4`)
+- **Status:** DECODED WITH PARTIAL CHANNEL MAP (96 total not fully mapped from 0x334 alone)
 
 ### 0x342
 - **First mentioned:** `EXTENDED_ARCHITECTURE_ANALYSIS.md`
@@ -102,10 +102,10 @@
 - **Equivalent:** CMP-SMART 0x211 byte2
 
 ### 0x3F4
-- **Source:** `COMPREHENSIVE_FINDINGS.md`
+- **Source:** `CELL_TEMP_STORAGE_MANUAL.md`
 - **Type:** Temperature telemetry
-- **Details:** 7 temperature values per slot, 4 slots
-- **Status:** PARTIALLY DECODED
+- **Details:** `slot=byte0>>6`, 7 values per slot, `tempC=raw-40`
+- **Status:** DECODED WITH PARTIAL PHYSICAL PROBE MAP
 
 ### 0x428
 - **Primary source:** `EXTENDED_ARCHITECTURE_ANALYSIS.md`
@@ -114,9 +114,9 @@
 - **Equivalent:** CMP-SMART 0x351 byte7 counter
 
 ### 0x583
-- **Source:** `COMPREHENSIVE_FINDINGS.md`
+- **Source:** `CELL_TEMP_STORAGE_MANUAL.md`
 - **Type:** Battery validity + counts
-- **Details:** Cell/temperature counts and ready flag
+- **Details:** state classes (`FDFD..`, `0000..`, `1509..`, `1709..`) and bytes5/6 manifest (`24/96`)
 - **Status:** DECODED
 
 ### 0x591
