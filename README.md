@@ -137,7 +137,7 @@ Recommended implementation sequence:
 1. [0x281_COMMAND_FRAME_DECODED.md](0x281_COMMAND_FRAME_DECODED.md)
 2. [CELL_TEMP_STORAGE_MANUAL.md](CELL_TEMP_STORAGE_MANUAL.md)
 3. [COMPREHENSIVE_FINDINGS.md](COMPREHENSIVE_FINDINGS.md)
-4. [main.cpp](main.cpp)
+4. [main.cpp](src/main.cpp)
 5. [platformio.ini](platformio.ini)
 
 ---
