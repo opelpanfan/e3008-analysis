@@ -60,7 +60,7 @@ Primary reasoning model used: temporal precedence (command must appear before st
 
 For raw evidence tables and sequence-level details, use [COMPREHENSIVE_FINDINGS.md](COMPREHENSIVE_FINDINGS.md).
 
-The November 2026 UDS reset sequences, the corrected 96-cell `0x334` decode, and the listen-only bench worker are in [PSA82_PROTOCOL_AND_RESET.md](PSA82_PROTOCOL_AND_RESET.md). Run `python -m psa82 routines` and `python -m pytest`.
+The November 2026 UDS reset sequences, the corrected 96-cell `0x334` decode, and the listen-only bench worker are in [PSA82_PROTOCOL_AND_RESET.md](PSA82_PROTOCOL_AND_RESET.md). The crash-latch research and the dry-run emulator are in [docs/psa82_crash_latch_research.md](docs/psa82_crash_latch_research.md). Run `python -m psa82 routines` and `python -m pytest`.
 
 ---
 
