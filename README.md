@@ -60,6 +60,8 @@ Primary reasoning model used: temporal precedence (command must appear before st
 
 For raw evidence tables and sequence-level details, use [COMPREHENSIVE_FINDINGS.md](COMPREHENSIVE_FINDINGS.md).
 
+The November 2026 UDS reset sequences, the corrected 96-cell `0x334` decode, and the listen-only bench worker are in [PSA82_PROTOCOL_AND_RESET.md](PSA82_PROTOCOL_AND_RESET.md). The crash-latch research and the dry-run emulator are in [docs/psa82_crash_latch_research.md](docs/psa82_crash_latch_research.md). Run `python -m psa82 routines` and `python -m pytest`.
+
 ---
 
 ## Confidence and Limitations
@@ -102,6 +104,7 @@ Recommended implementation sequence:
 - [SESSION_4_ADDITIONS.md](SESSION_4_ADDITIONS.md) - latest additions and changes
 
 ### Core technical evidence
+- [PSA82_PROTOCOL_AND_RESET.md](PSA82_PROTOCOL_AND_RESET.md) - UDS reset routines, DTC clear, corrected cell decode, bench worker
 - [COMPREHENSIVE_FINDINGS.md](COMPREHENSIVE_FINDINGS.md) - main evidence and decoded frame set
 - [0x281_COMMAND_FRAME_DECODED.md](0x281_COMMAND_FRAME_DECODED.md) - deep decode for `0x281`
 - [CELL_TEMP_STORAGE_MANUAL.md](CELL_TEMP_STORAGE_MANUAL.md) - deep decode for `0x583`/`0x334`/`0x3F4` telemetry storage

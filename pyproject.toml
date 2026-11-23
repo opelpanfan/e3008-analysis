@@ -1,0 +1,9 @@
+[project]
+name = "psa82"
+version = "0.1.0"
+description = "Listen-only PSA 82 kWh bench worker with gated diagnostic actions"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
