@@ -1,6 +1,8 @@
 # e3008 Battery Cell and Temperature Storage Manual
 
-Date: June 22, 2026  
+Date: June 22, 2026
+
+> **Update, November 2026.** On the battery-only logs and the Fiat 600e logs, `0x334` is four 14-bit cells per frame (`mux = byte0 >> 3`). Groups 0–23 are the 96 series cells. The 3-word shift formula below matches cell 0 and mis-decodes the others, which is why it could not fill 96 cells. Use [PSA82_PROTOCOL_AND_RESET.md](PSA82_PROTOCOL_AND_RESET.md). The rest of this file is the June 2026 record.  
 Scope: Reverse-analysis manual for how battery cell voltages and temperature probes are stored and transported on CAN
 
 ---

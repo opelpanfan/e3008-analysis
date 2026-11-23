@@ -273,6 +273,17 @@
 
 ---
 
+## PSA 82 UDS and bench worker (November 2026)
+
+| Topic | Where |
+|---|---|
+| Routine order `10 01`, `10 03`, `D866`/`D802`, `31 01`, `31 03` | `PSA82_PROTOCOL_AND_RESET.md` |
+| Clear DTC `14 FF FF FF` and the 17-to-7 DTC list | `PSA82_PROTOCOL_AND_RESET.md` |
+| `0x334` 4×14-bit, 96 series cells | `PSA82_PROTOCOL_AND_RESET.md` (supersedes the 3-word formula in `CELL_TEMP_STORAGE_MANUAL.md`) |
+| Fiat `0x27A` / `0x342` / `0x2C6` handshake | `PSA82_PROTOCOL_AND_RESET.md` |
+| e3008 candump close on `0x281` / `0x591` | `COMPREHENSIVE_FINDINGS.md`, `0x281_COMMAND_FRAME_DECODED.md` |
+| Python worker `python -m psa82` | `psa82/` |
+
 ## Notes
 
 - All discoveries are **validated against actual vehicle data** (252k+ CAN frames analyzed)
